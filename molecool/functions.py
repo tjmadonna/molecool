@@ -10,39 +10,6 @@ import matplotlib.pyplot as plt
 
 from mpl_toolkits.mplot3d import Axes3D
 
-def canvas(with_attribution=True):
-    """
-    Placeholder function to show example docstring (NumPy format)
-
-    Replace this function and doc string for your own project
-
-    Parameters
-    ----------
-    with_attribution : bool, Optional, default: True
-        Set whether or not to display who the quote is from
-
-    Returns
-    -------
-    quote : str
-        Compiled string including quote and optional attribution
-    """
-
-    quote = "The code is but a canvas to our imagination."
-    if with_attribution:
-        quote += "\n\t- Adapted from Henry David Thoreau"
-    return quote
-
-
-if __name__ == "__main__":
-    # Do something if this file is invoked on its own
-    print(canvas())
-
-def calculate_distance(rA, rB):
-    # This function calculates the distance between two points given as numpy arrays.
-    d=(rA-rB)
-    dist=np.linalg.norm(d)
-    return dist
-
 def open_pdb(f_loc):
     # This function reads in a pdb file and returns the atom names and coordinates.
     with open(f_loc) as f:
@@ -56,17 +23,6 @@ def open_pdb(f_loc):
             c.append(c2)
     coords = np.array(c)
     return sym, coords
-
-atomic_weights = {
-    'H': 1.00784,
-    'C': 12.0107,
-    'N': 14.0067,
-    'O': 15.999,
-    'P': 30.973762,
-    'F': 18.998403,
-    'Cl': 35.453,
-    'Br': 79.904,
-}
 
 def open_xyz(file_location):
     
@@ -123,18 +79,6 @@ def draw_molecule(coordinates, symbols, draw_bonds=None, save_location=None, dpi
     
     return ax
 
-def calculate_angle(rA, rB, rC, degrees=False):
-    # Calculate the angle between three points. Answer is given in radians by default, but can be given in degrees
-    # by setting degrees=True
-    AB = rB - rA
-    BC = rB - rC
-    theta=np.arccos(np.dot(AB, BC)/(np.linalg.norm(AB)*np.linalg.norm(BC)))
-
-    if degrees:
-        return np.degrees(theta)
-    else:
-        return theta
-
 def bond_histogram(bond_list, save_location=None, dpi=300, graph_min=0, graph_max=2):
     # Draw a histogram of bond lengths based on a bond_list (output from build_bond_list function)
     
@@ -173,15 +117,3 @@ def build_bond_list(coordinates, max_bond=1.5, min_bond=0):
                 bonds[(atom1, atom2)] = distance
 
     return bonds
-
-atom_colors = {
-    'H': 'white',
-    'C': '#D3D3D3',
-    'N': '#add8e6',
-    'O': 'red',
-    'P': '#FFA500',
-    'F': '#FFFFE0',
-    'Cl': '#98FB98',
-    'Br': '#F4A460',
-    'S': 'yellow'
-}
