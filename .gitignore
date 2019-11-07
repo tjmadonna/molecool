@@ -103,3 +103,6 @@ ENV/
 
 # emacs temp files
 *~
+
+# vscode directories and files
+.vscode/
