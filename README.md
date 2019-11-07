@@ -7,6 +7,10 @@ molecool
 
 A python package for analyzing and visualizing molecules for the MolSSI Best Practices workshop.
 
+This repository is current under development. This is developmentally installed using:
+`pip install -e .`
+in the repository directory.
+
 ### Copyright
 
 Copyright (c) 2019, Tyler Madonna
