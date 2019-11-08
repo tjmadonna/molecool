@@ -54,3 +54,25 @@ def calculate_center_of_mass(symbols, coordinates):
     center_of_mass = weighted_coordinates / total_weight
 
     return center_of_mass
+
+def calculate_molecular_mass(symbols):
+    """Calculate the mass of a molecule.
+   
+    Parameters
+    ----------
+    symbols : list
+        A list of elements.
+   
+    Returns
+    -------
+    mass : float
+        The mass of the molecule
+    """
+
+    molecular_mass = 0
+
+    for symbol in symbols:
+        atom_mass = atomic_weights[symbol]
+        molecular_mass += atom_mass
+
+    return molecular_mass

@@ -6,7 +6,7 @@ A python package for analyzing and visualizing molecules for the MolSSI Best Pra
 # Add imports here
 from .functions import *
 from .measure import calculate_distance, calculate_angle
-from .molecule import build_bond_list, calculate_center_of_mass
+from .molecule import build_bond_list, calculate_center_of_mass, calculate_molecular_mass
 from .visualize import draw_molecule, bond_histogram
 
 # Handle versioneer
