@@ -43,15 +43,14 @@ def calculate_center_of_mass(symbols, coordinates):
     .. math:: \\vec{R}=\\frac{1}{M} \\sum_{i=1}^{n} m_{i}\\vec{r_{}i}
    
     """
-    total_weight = 0
-    weighted_coordinates = np.array([0., 0., 0.])
+    total_mass = calculate_molecular_mass(symbols)
 
-    for symbol, coordinate in zip(symbols, coordinates):
-        atomic_weight = atomic_weights[symbol]
-        total_weight += atomic_weight
-        weighted_coordinates += atomic_weight * coordinate
+    mass_array = np.zeros([len(symbols), 1])
 
-    center_of_mass = weighted_coordinates / total_weight
+    for i in range(len(symbols)):
+        mass_array[i] = atomic_weights[symbols[i]]
+
+    center_of_mass = sum(coordinates * mass_array) / total_mass
 
     return center_of_mass
 
