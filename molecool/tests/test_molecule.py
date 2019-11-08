@@ -14,8 +14,9 @@ def test_molecool_imported():
 
 def test_calculate_center_of_mass():
     symbols = np.array(['C', 'H', 'H', 'H', 'H'])
-    coordinates = np.array([[1, 1, 1], [2.4, 1, 1], [-0.4, 1, 1], [1, 1, 2.4],\
-        [1, 1, -0.4]])
+    coordinates = np.array([
+        [1, 1, 1], [2.4, 1, 1], [-0.4, 1, 1], [1, 1, 2.4], [1, 1, -0.4]
+        ])
 
     calculated_center = molecool.calculate_center_of_mass(symbols, coordinates)
 
