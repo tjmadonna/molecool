@@ -21,3 +21,13 @@ def test_calculate_center_of_mass():
     expected_center = np.array([1, 1, 1])
 
     assert np.array_equal(expected_center, calculated_center)
+
+def test_calculate_molecular_mass(test_molecule):
+    symbols = ['C', 'H', 'H', 'H', 'H']
+
+    calculated_mass = molecool.calculate_molecular_mass(symbols)
+    
+    expected_mass = molecool.data.atomic_weights['C'] + molecool.data.atomic_weights['H'] +\
+        molecool.data.atomic_weights['H'] + molecool.data.atomic_weights['H']
+    
+    assert expected_mass == calculated_mass
